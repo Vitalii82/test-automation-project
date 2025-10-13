@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>carina-api-standalone</artifactId>
+  <version>1.0.0</version>
+  <name>carina-api-standalone</name>
+  <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <testng.suite>src/test/resources/testng-all.xml</testng.suite>
+
+    <carina.version>8.3.11</carina.version>
+    <restassured.version>5.4.0</restassured.version>
+    <testng.version>7.10.2</testng.version>
+    <surefire.version>3.2.5</surefire.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.zebrunner</groupId>
+      <artifactId>carina-core</artifactId>
+      <version>${carina.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${restassured.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>${testng.suite}</suiteXmlFile>
+          </suiteXmlFiles>
+          <systemPropertyVariables>
+            <base_url>${base_url}</base_url>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

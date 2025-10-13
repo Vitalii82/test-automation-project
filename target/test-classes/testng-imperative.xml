@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="api-imperative" verbose="1">
+  <test name="imperative-only">
+    <groups>
+      <run>
+        <include name="imperative"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.example.tests.imperative.HttpBinImperativeTest"/>
+    </classes>
+  </test>
+</suite>
