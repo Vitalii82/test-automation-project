@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  httpbin:
+    image: kennethreitz/httpbin
+    container_name: httpbin
+    ports:
+      - "8080:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/get"]
+      interval: 5s
+      timeout: 2s
+      retries: 15
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BASE_URL: "http://httpbin"
+    environment:
+      base_url: "http://httpbin"
+      MAVEN_OPTS: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=80"
+    depends_on:
+      httpbin:
+        condition: service_healthy
+    volumes:
+      - ./target:/project/target
+    command: >
+      bash -lc "mvn -q -Dbase_url=$${base_url} test"
