@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="ui-suite">
-  <test name="ui-tests">
+<suite name="DemoQA UI Suite (POM)">
+  <test name="DemoQA Tests">
     <classes>
-      <class name="com.automation.ui.UITests"/>
+      <class name="com.automation.ui.tests.DemoQATests"/>
     </classes>
   </test>
 </suite>
