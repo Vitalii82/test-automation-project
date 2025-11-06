@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.automation.ui.tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -6,6 +7,10 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import com.automation.ui.pages.*;
 
+@Epic("UI")
+@Feature("E2E")
+@Story("Baseline Flow")
+@Severity(SeverityLevel.NORMAL)
 public class DemoQATests {
     private WebDriver driver;
     private TextBoxPage textBoxPage;

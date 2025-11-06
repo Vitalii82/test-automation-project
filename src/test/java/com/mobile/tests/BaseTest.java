@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.mobile.tests;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -12,6 +13,10 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Properties;
 
+@Epic("Mobile")
+@Feature("E2E")
+@Story("Baseline Flow")
+@Severity(SeverityLevel.NORMAL)
 public class BaseTest {
     protected AndroidDriver driver;
     protected Properties cfg;

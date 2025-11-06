@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.mobile.tests;
 
 import org.openqa.selenium.WebElement;

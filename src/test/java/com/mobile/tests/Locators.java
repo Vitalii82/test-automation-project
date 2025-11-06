@@ -1,8 +1,13 @@
+import io.qameta.allure.*;
 package com.mobile.tests;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
+@Epic("Mobile")
+@Feature("E2E")
+@Story("Baseline Flow")
+@Severity(SeverityLevel.NORMAL)
 public class Locators {
     public static final By LOGIN_MENU = AppiumBy.accessibilityId("Login");
     public static final By FORMS_MENU = AppiumBy.accessibilityId("Forms");

@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.automation.ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -6,6 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+@Epic("UI")
+@Feature("E2E")
+@Story("Baseline Flow")
+@Severity(SeverityLevel.NORMAL)
 public class BaseTest {
     protected WebDriver driver;
 

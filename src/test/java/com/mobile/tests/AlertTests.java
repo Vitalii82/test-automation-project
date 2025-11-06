@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.mobile.tests;
 
 import io.appium.java_client.AppiumBy;

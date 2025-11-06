@@ -1,8 +1,13 @@
+import io.qameta.allure.*;
 package com.example.tests.declarative;
 import com.example.api.*;
 import com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
+@Epic("General")
+@Feature("E2E")
+@Story("Baseline Flow")
+@Severity(SeverityLevel.NORMAL)
 public class HttpBinDeclarativeTest {
   @Test(groups="declarative")
   public void getEcho_shouldReturn200(){ AbstractApiMethodV2 api=new GetEchoMethod(); var rs=api.callAPIExpectSuccess(); assertEquals(rs.statusCode(),200); }

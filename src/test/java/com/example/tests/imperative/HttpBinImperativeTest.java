@@ -1,9 +1,14 @@
+import io.qameta.allure.*;
 package com.example.tests.imperative;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.annotations.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
+@Epic("General")
+@Feature("E2E")
+@Story("Baseline Flow")
+@Severity(SeverityLevel.NORMAL)
 public class HttpBinImperativeTest {
   @Parameters({"baseUrl"})
   @BeforeClass

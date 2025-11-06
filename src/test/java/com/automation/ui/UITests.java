@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.automation.ui;
 
 import org.openqa.selenium.*;

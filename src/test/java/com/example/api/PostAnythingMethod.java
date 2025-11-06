@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 package com.example.api;
 import com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2;
 import com.qaprosoft.carina.core.foundation.api.annotation.*;

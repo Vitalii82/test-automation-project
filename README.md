@@ -1,12 +1,34 @@
-# Carina API Automation (Standalone)
+# QA Automation project
 
-This project mirrors the style of the repos you shared and contains **10 API tests**:
-- 5 **imperative** tests (RestAssured)
-- 5 **declarative** tests (Carina AbstractApiMethodV2 with templates)
+Modern, full-stack test automation project combining **Carina**, **Selenium**, **Appium**, and **Allure** — fully containerized with **Docker** and CI-ready for **Jenkins**.
 
-## Quick start
-1) Run a local httpbin:
-docker run -d --name httpbin -p 80:80 kennethreitz/httpbin
 
-2) Run tests :
-mvn test
+## Features
+- Java + Maven + TestNG
+- Selenium (Web UI)
+- Appium (Android)
+- REST API testing (RestAssured)
+- Allure reporting (integrated with Jenkins)
+- Carina framework (driver & config management)
+- Dockerized infra: Selenium Grid + Appium + Jenkins
+- Sample mobile app (`app.apk`) in resources
+
+---
+
+## Project Structure
+src/
+├── main/
+│ ├── java/com/solvd/
+│ │ ├── ui/pages/ → Page Object Models
+│ │ └── ui/components/ → Reusable UI components
+│ └── resources/
+│ ├── android/apps/ → demo app.apk
+│ └── carina-docker.properties
+└── test/
+├── java/com/solvd/
+│ ├── ui/tests/
+│ ├── api/tests/
+│ └── mobile/tests/
+└── resources/
+├── _config.properties
+└── testng.xml
