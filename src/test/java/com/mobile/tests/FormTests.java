@@ -1,6 +1,6 @@
-import io.qameta.allure.*;
 package com.mobile.tests;
 
+import io.qameta.allure.*;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;

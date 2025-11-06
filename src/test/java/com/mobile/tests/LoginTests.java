@@ -1,6 +1,6 @@
-import io.qameta.allure.*;
 package com.mobile.tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;

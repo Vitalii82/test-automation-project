@@ -1,5 +1,5 @@
-import io.qameta.allure.*;
 package com.mobile.tests;
+import io.qameta.allure.*;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;

@@ -1,6 +1,6 @@
-import io.qameta.allure.*;
 package com.mobile.tests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

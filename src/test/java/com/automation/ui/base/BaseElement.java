@@ -1,5 +1,6 @@
-import io.qameta.allure.*;
 package com.automation.ui.base;
+
+import io.qameta.allure.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;

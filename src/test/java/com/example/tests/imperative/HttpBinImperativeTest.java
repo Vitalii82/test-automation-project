@@ -1,5 +1,6 @@
-import io.qameta.allure.*;
 package com.example.tests.imperative;
+
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.annotations.*;

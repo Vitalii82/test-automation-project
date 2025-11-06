@@ -1,8 +1,0 @@
-{
-  "name": "Local",
-  "type": "jenkins",
-  "reportName": "Sample Allure Results",
-  "buildOrder": 1,
-  "buildName": "Sample-Run",
-  "buildUrl": "http://localhost:8080/job/sample/1"
-}

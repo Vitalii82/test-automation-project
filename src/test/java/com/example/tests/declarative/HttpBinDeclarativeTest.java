@@ -1,5 +1,6 @@
-import io.qameta.allure.*;
 package com.example.tests.declarative;
+
+import io.qameta.allure.*;
 import com.example.api.*;
 import com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2;
 import org.testng.annotations.Test;

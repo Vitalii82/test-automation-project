@@ -1,5 +1,6 @@
-import io.qameta.allure.*;
 package com.automation.ui.pages;
+
+import io.qameta.allure.*;
 import com.automation.ui.base.BasePage;
 import com.automation.ui.elements.*;
 import org.openqa.selenium.By;
