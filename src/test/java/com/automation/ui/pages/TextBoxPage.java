@@ -25,6 +25,14 @@ public class TextBoxPage {
         driver.findElement(emailInput).sendKeys(email);
         driver.findElement(currentAddressInput).sendKeys(currentAddress);
         driver.findElement(permanentAddressInput).sendKeys(permanentAddress);
+    }
+
+    public void submitForm() {
         driver.findElement(submitButton).click();
+    }
+
+    public boolean isOutputVisible() {
+        return !driver.findElements(By.id("output")).isEmpty()
+                && driver.findElement(By.id("output")).isDisplayed();
     }
 }

@@ -1,5 +1,6 @@
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\automation\ui\base\BaseElement.java
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\automation\ui\base\BasePage.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\automation\ui\BaseTest.java
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\automation\ui\DemoQATests.java
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\automation\ui\elements\Button.java
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\automation\ui\elements\Label.java
@@ -25,3 +26,10 @@ C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\tes
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\mobile\tests\Locators.java
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\mobile\tests\LoginTests.java
 C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\mobile\tests\NavigationTests.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\api\AbstractApiMethodV2.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\api\annotation\Endpoint.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\api\annotation\RequestTemplatePath.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\api\annotation\ResponseTemplatePath.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\api\annotation\SuccessfulHttpStatus.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\api\http\HttpMethodType.java
+C:\Users\6631\OneDrive\Desktop\Automation course\test-automation-project\src\test\java\com\qaprosoft\carina\core\foundation\utils\Configuration.java

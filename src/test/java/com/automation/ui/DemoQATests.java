@@ -1,4 +1,4 @@
-package com.automation.ui.tests;
+package com.automation.ui;
 
 import com.automation.ui.pages.TextBoxPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
