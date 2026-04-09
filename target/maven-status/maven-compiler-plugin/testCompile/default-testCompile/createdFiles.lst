@@ -1,5 +1,6 @@
 com\qaprosoft\carina\core\foundation\api\annotation\SuccessfulHttpStatus.class
 com\qaprosoft\carina\core\foundation\utils\Configuration.class
+com\automation\ui\pages\CheckBoxPage.class
 com\mobile\tests\Locators.class
 com\automation\ui\pages\ModalDialogsPage.class
 com\automation\ui\pages\WebTablesPage.class
@@ -31,6 +32,7 @@ com\mobile\tests\GestureTests.class
 com\example\api\GetStatusMethod.class
 com\mobile\tests\BaseTest.class
 com\qaprosoft\carina\core\foundation\api\AbstractApiMethodV2.class
+com\automation\ui\tests\CheckBoxTest.class
 com\automation\ui\tests\DemoQATests.class
 com\example\tests\declarative\HttpBinDeclarativeTest.class
 com\qaprosoft\carina\core\foundation\api\annotation\Endpoint.class

@@ -27,9 +27,20 @@ public class ButtonsPage extends BasePage {
     public void open() { super.open("buttons"); }
 
     public boolean doubleClick() {
-        new Actions(driver).doubleClick(doubleClickBtn).perform();
-        return !driver.findElements(By.id("doubleClickMessage")).isEmpty()
-                && driver.findElement(By.id("doubleClickMessage")).isDisplayed();
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
+            "var el = arguments[0];" +
+            "el.scrollIntoView({block:'center'});" +
+            "var ev = new MouseEvent('dblclick', {bubbles:true, cancelable:true});" +
+            "el.dispatchEvent(ev);",
+            doubleClickBtn);
+        try {
+            WebElement msg = wait.until(
+                org.openqa.selenium.support.ui.ExpectedConditions
+                    .visibilityOfElementLocated(By.id("doubleClickMessage")));
+            return msg.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void rightClickButton() {
