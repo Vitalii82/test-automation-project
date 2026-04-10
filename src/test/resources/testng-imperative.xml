@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="api-imperative" verbose="1">
+  <parameter name="baseUrl" value="https://httpbin.org"/>
   <test name="imperative-only">
     <groups>
       <run>
