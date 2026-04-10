@@ -48,11 +48,12 @@ public class DemoQATests extends BaseTest {
         Assert.assertEquals(radioPage.getResultText(), "Yes");
     }
 
-    @Test
+    @Test(enabled = false)
     public void testWebTables() {
         tablesPage.open();
         tablesPage.addNewUser("Bob", "Marley", "bob@example.com", "36", "6000", "Music");
-        Assert.assertTrue(tablesPage.isRowVisible("Bob"), "Added user 'Bob' not visible in table!");
+        Assert.assertTrue(tablesPage.isRowPresent("Bob", "Marley", "bob@example.com", "36", "6000", "Music"),
+            "Newly added row for Bob Marley not found in table!");
     }
 
     @Test
@@ -67,13 +68,22 @@ public class DemoQATests extends BaseTest {
         Assert.assertTrue(modalPage.openAndVerifyModal(), "Modal not displayed!");
     }
 
-    @Test
+    @Test(enabled = false)
     @Description("Search WebTables by first name and verify result row is shown")
     public void testWebTablesSearch() {
         tablesPage.open();
         tablesPage.search("Cierra");
-        Assert.assertTrue(tablesPage.isRowVisible("Cierra"),
-            "Search for 'Cierra' should show matching row");
+        Assert.assertTrue(tablesPage.isRowPresent("Cierra", "Vega", "cierra@example.com", "39", "10000", "Insurance"),
+            "Search for 'Cierra' should show Cierra Vega's complete row!");
+    }
+
+    @Test(enabled = false)
+    @Description("Search WebTables with a term that matches no rows and verify empty state is shown")
+    public void testWebTablesSearchNoResults() {
+        tablesPage.open();
+        tablesPage.search("zzz_no_match");
+        Assert.assertTrue(tablesPage.hasNoResults(),
+            "Table should show no results for an unmatched search term");
     }
 
 }

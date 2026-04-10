@@ -1,10 +1,14 @@
 package com.automation.ui.pages;
 
-import io.qameta.allure.*;
 import com.automation.ui.base.BasePage;
 import com.automation.ui.elements.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class WebTablesPage extends BasePage {
     private Button addButton;
@@ -17,16 +21,73 @@ public class WebTablesPage extends BasePage {
     private static final By SEARCH_BOX = By.id("searchBox");
     private static final By TABLE_ROWS = By.cssSelector(".rt-td");
 
-    public void open() { open("webtables"); }
+    public void open() {
+        open("webtables");
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript(
+            "document.querySelectorAll('iframe, #adplus-anchor, .adsbygoogle').forEach(el => el.remove());");
+    }
 
     public void search(String term) {
         waitForClickable(SEARCH_BOX);
-        driver.findElement(SEARCH_BOX).sendKeys(term);
+        org.openqa.selenium.WebElement box = driver.findElement(SEARCH_BOX);
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", box);
+        box.clear();
+        box.sendKeys(term);
     }
 
     public boolean isRowVisible(String text) {
         return driver.findElements(TABLE_ROWS).stream()
                 .anyMatch(e -> e.getText().equals(text));
+    }
+
+    public boolean isRowPresent(String... columnValues) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ignored) {}
+        System.out.println("=== DEBUG TABLE STATE START ===");
+        System.out.println("URL:   " + driver.getCurrentUrl());
+        System.out.println("Title: " + driver.getTitle());
+        System.out.println("searchBox found: " + !driver.findElements(By.id("searchBox")).isEmpty());
+        System.out.println(".rt-table count:    " + driver.findElements(By.cssSelector(".rt-table")).size());
+        System.out.println(".rt-tbody count:    " + driver.findElements(By.cssSelector(".rt-tbody")).size());
+        System.out.println(".rt-tr-group count: " + driver.findElements(By.cssSelector(".rt-tr-group")).size());
+        System.out.println(".rt-tr count:       " + driver.findElements(By.cssSelector(".rt-tr")).size());
+        System.out.println(".rt-td count:       " + driver.findElements(By.cssSelector(".rt-td")).size());
+        List<org.openqa.selenium.WebElement> tables = driver.findElements(By.cssSelector(".rt-table"));
+        if (!tables.isEmpty()) System.out.println(".rt-table text: " + tables.get(0).getText());
+        System.out.println("=== DEBUG TABLE STATE END ===");
+        try {
+            wait.until(d -> {
+                for (org.openqa.selenium.WebElement rowGroup :
+                        d.findElements(By.cssSelector(".rt-tbody .rt-tr-group"))) {
+                    try {
+                        List<org.openqa.selenium.WebElement> rows = rowGroup.findElements(By.cssSelector(".rt-tr"));
+                        if (rows.isEmpty()) continue;
+                        List<String> cells = rows.get(0).findElements(By.cssSelector(".rt-td"))
+                                .stream().map(e -> e.getText().trim()).collect(Collectors.toList());
+                        if (cells.size() < 2 || cells.stream().allMatch(String::isEmpty)) continue;
+                        if (cells.get(0).equals(columnValues[0].trim()) &&
+                            cells.get(1).equals(columnValues[1].trim())) {
+                            return true;
+                        }
+                    } catch (StaleElementReferenceException ignored) {}
+                }
+                return false;
+            });
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean hasNoResults() {
+        try {
+            wait.until(d -> d.findElements(By.cssSelector(".rt-tbody .rt-td")).stream()
+                .allMatch(c -> c.getText().trim().isEmpty()));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 
     public void addNewUser(String first, String last, String mail, String age, String salary, String dep) {
@@ -38,5 +99,6 @@ public class WebTablesPage extends BasePage {
         new TextBox(driver, By.id("salary")).type(salary);
         new TextBox(driver, By.id("department")).type(dep);
         new Button(driver, By.id("submit")).click();
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(".rt-tbody"), first));
     }
 }
