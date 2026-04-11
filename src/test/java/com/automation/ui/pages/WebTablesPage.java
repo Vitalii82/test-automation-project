@@ -42,21 +42,6 @@ public class WebTablesPage extends BasePage {
 
     public boolean isRowPresent(String... columnValues) {
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ignored) {}
-        System.out.println("=== DEBUG TABLE STATE START ===");
-        System.out.println("URL:   " + driver.getCurrentUrl());
-        System.out.println("Title: " + driver.getTitle());
-        System.out.println("searchBox found: " + !driver.findElements(By.id("searchBox")).isEmpty());
-        System.out.println(".rt-table count:    " + driver.findElements(By.cssSelector(".rt-table")).size());
-        System.out.println(".rt-tbody count:    " + driver.findElements(By.cssSelector(".rt-tbody")).size());
-        System.out.println(".rt-tr-group count: " + driver.findElements(By.cssSelector(".rt-tr-group")).size());
-        System.out.println(".rt-tr count:       " + driver.findElements(By.cssSelector(".rt-tr")).size());
-        System.out.println(".rt-td count:       " + driver.findElements(By.cssSelector(".rt-td")).size());
-        List<org.openqa.selenium.WebElement> tables = driver.findElements(By.cssSelector(".rt-table"));
-        if (!tables.isEmpty()) System.out.println(".rt-table text: " + tables.get(0).getText());
-        System.out.println("=== DEBUG TABLE STATE END ===");
-        try {
             wait.until(d -> {
                 for (org.openqa.selenium.WebElement rowGroup :
                         d.findElements(By.cssSelector(".rt-tbody .rt-tr-group"))) {

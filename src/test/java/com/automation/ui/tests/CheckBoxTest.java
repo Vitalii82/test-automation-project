@@ -8,8 +8,6 @@ import org.testng.annotations.*;
 
 @Epic("UI")
 @Feature("CheckBox")
-@Story("Select home checkbox")
-@Severity(SeverityLevel.NORMAL)
 public class CheckBoxTest extends BaseTest {
 
     private CheckBoxPage checkBoxPage;
@@ -20,6 +18,8 @@ public class CheckBoxTest extends BaseTest {
     }
 
     @Test
+    @Story("Select home checkbox")
+    @Severity(SeverityLevel.NORMAL)
     @Description("Expand the tree, select Home checkbox and verify the result is shown")
     public void selectHomeCheckBox() {
         checkBoxPage.open();

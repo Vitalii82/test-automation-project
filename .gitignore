@@ -1,2 +1,7 @@
 target/
 allure-results/
+target/
+node_modules/
+.git/
+.idea/
+*.log/

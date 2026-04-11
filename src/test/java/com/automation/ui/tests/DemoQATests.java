@@ -48,7 +48,7 @@ public class DemoQATests extends BaseTest {
         Assert.assertEquals(radioPage.getResultText(), "Yes");
     }
 
-    @Test(enabled = false)
+    @Test(groups = "flaky")
     public void testWebTables() {
         tablesPage.open();
         tablesPage.addNewUser("Bob", "Marley", "bob@example.com", "36", "6000", "Music");
@@ -68,7 +68,7 @@ public class DemoQATests extends BaseTest {
         Assert.assertTrue(modalPage.openAndVerifyModal(), "Modal not displayed!");
     }
 
-    @Test(enabled = false)
+    @Test(groups = "flaky")
     @Description("Search WebTables by first name and verify result row is shown")
     public void testWebTablesSearch() {
         tablesPage.open();
@@ -77,7 +77,7 @@ public class DemoQATests extends BaseTest {
             "Search for 'Cierra' should show Cierra Vega's complete row!");
     }
 
-    @Test(enabled = false)
+    @Test(groups = "flaky")
     @Description("Search WebTables with a term that matches no rows and verify empty state is shown")
     public void testWebTablesSearchNoResults() {
         tablesPage.open();
