@@ -1,5 +1,6 @@
 target/
 allure-results/
+CLAUDE.md
 target/
 node_modules/
 .git/
