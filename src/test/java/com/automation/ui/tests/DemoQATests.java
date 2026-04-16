@@ -16,7 +16,7 @@ public class DemoQATests extends BaseTest {
     private ButtonsPage buttonsPage;
     private ModalDialogsPage modalPage;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void initPages() {
         textBoxPage = new TextBoxPage(driver);
         radioPage = new RadioButtonPage(driver);
@@ -45,7 +45,7 @@ public class DemoQATests extends BaseTest {
     public void testRadioButton() {
         radioPage.open();
         radioPage.clickYes();
-        Assert.assertEquals(radioPage.getResultText(), "Yes");
+        Assert.assertEquals(radioPage.getResultText(), "Yes", "Radio button result should display 'Yes'");
     }
 
     @Test(groups = "flaky")

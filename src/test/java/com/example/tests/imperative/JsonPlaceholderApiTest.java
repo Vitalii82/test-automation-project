@@ -47,4 +47,21 @@ public class JsonPlaceholderApiTest {
                 .body("title", equalTo("test"))
                 .body("id",    notNullValue());
     }
+
+    @Test(groups = "imperative")
+    @Story("User profile validation")
+    @Description("GET /users/1 returns a complete user profile with valid structure, email format, and nested fields")
+    public void getUser_shouldReturnCompleteProfile() {
+        given()
+            .when().get(BASE + "/users/1")
+            .then()
+                .statusCode(200)
+                .contentType(containsString("application/json"))
+                .body("id",           equalTo(1))
+                .body("name",         not(emptyOrNullString()))
+                .body("username",     not(emptyOrNullString()))
+                .body("email",        matchesPattern("^[^@]+@[^@]+\\.[^@]+$"))
+                .body("address.city", not(emptyOrNullString()))
+                .body("company.name", not(emptyOrNullString()));
+    }
 }
